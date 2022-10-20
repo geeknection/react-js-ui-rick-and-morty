@@ -21,7 +21,7 @@ function SearchList(props: _Props) {
                     {props.loading ? (
                         <SearchListSkeleton />
                     ) : (
-                    characters.map((item, key) => <SearchItem key={key} data={item} />))}
+                        characters.map((item, key) => <SearchItem key={key} data={item} />))}
                 </div>
             </div>
         </section>

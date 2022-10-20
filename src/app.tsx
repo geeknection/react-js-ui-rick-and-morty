@@ -5,7 +5,7 @@ import {
     Route,
     Routes
 } from 'react-router-dom';
-import 'react-loading-skeleton/dist/skeleton.css'
+import 'react-loading-skeleton/dist/skeleton.css';
 
 function App() {
     return (

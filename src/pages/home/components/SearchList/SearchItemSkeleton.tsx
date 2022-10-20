@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './styles.module.scss';
-import Skeleton from 'react-loading-skeleton'
+import Skeleton from 'react-loading-skeleton';
 
 function SearchItemSkeleton() {
     return (
