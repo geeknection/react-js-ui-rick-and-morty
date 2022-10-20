@@ -11,7 +11,7 @@ function SearchItem(props: _Props) {
     return (
         <div className="col-md-4 col-sm-6">
             <div className={styles.SearchItem}>
-                <a href={state.url} target='_blank'>
+                <a href={state.url} target='_blank' rel="noreferrer">
                     <div className={styles.ItemImage}>
                         <img src={state.image} className="img-responsive" alt={state.name} />
                     </div>
