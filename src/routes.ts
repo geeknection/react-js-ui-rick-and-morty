@@ -9,6 +9,10 @@ interface RouteStruct {
 const routes: RouteStruct[] = [{
     title: 'Home',
     page: HomePage,
+    path: '/home',
+},{
+    title: 'Home',
+    page: HomePage,
     path: '/',
 }];
 export default routes;

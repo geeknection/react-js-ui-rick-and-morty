@@ -1,6 +1,5 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import charactersStore from '#/reducers/stores/characters';
-import Reducers from './interfaces';
+import charactersStore from '#/reducers/slices/characters';
 
 export const storesCombined = {
     charactersStore
@@ -13,5 +12,3 @@ const rootReducer = configureStore({
 });
 
 export default rootReducer;
-
-export const setStoreValue = ({ reducer, type, value }: Reducers.setStoreValue) => ({ reducer, type, value });

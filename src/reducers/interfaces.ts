@@ -1,5 +1,3 @@
-import { storesCombined } from '.';
-
 namespace Reducers {
     export interface Character {
         id: number;
@@ -19,12 +17,7 @@ namespace Reducers {
         image: string;
         episode: string[];
         url: string;
-        created: Date;
-    }
-    export type setStoreValue = {
-        reducer: keyof typeof storesCombined;
-        type: string;
-        value: unknown;
+        created: string;
     }
 }
 export default Reducers;

@@ -47,5 +47,14 @@ module.exports = {
         "@typescript-eslint/no-namespace": "off",
         "@typescript-eslint/no-explicit-any": "off",
         "no-prototype-builtins": "off"
+    },
+    "settings": {
+        "import/resolver": {
+            "typescript": {},
+            "babel-plugin-root-import": {
+                "rootPathPrefix": "#",
+                "rootPathSuffix": "src"
+            }
+        }
     }
 };

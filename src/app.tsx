@@ -5,7 +5,6 @@ import {
     Route,
     Routes
 } from 'react-router-dom';
-import '#/theme/main.scss';
 
 function App() {
     return (
@@ -14,9 +13,7 @@ function App() {
                 {systemRoutes.map((item, key) => {
                     document.title = item.title;
                     return(
-                        <Route path={item.path} key={key}>
-                            <item.page />
-                        </Route>
+                        <Route path={item.path} key={key} element={<item.page />}/>
                     );
                 })}
             </Routes>
