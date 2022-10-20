@@ -1,25 +1,30 @@
 import { createSlice } from '@reduxjs/toolkit';
 import Reducers from '../interfaces';
 
-interface InitialState {
-    data: Reducers.Character[]
-}
-
-const initialState: InitialState = {
-    data: []
+const initialState: Reducers.InitialCharactersState = {
+    info: {
+        count: 0,
+        next: 'https://rickandmortyapi.com/api/character',
+        pages: 0,
+        prev: null,
+    },
+    results: []
 };
 
 export const charactersSlice = createSlice({
     name: 'charactersStore',
     initialState,
     reducers: {
-        dispatchCharacters: (state, action) => {
-            state.data = action.payload;
+        setCharacters: (state, action) => {
+            state.info = action.payload.info;
+            state.results = action.payload.results;
         }
     },
 });
 
-const dispatchCharacters = (data: Reducers.Character[]) => charactersSlice.actions.dispatchCharacters(data);
+const dispatchCharacters = (data: Reducers.InitialCharactersState) => {
+    return charactersSlice.actions.setCharacters(data);
+};
 
 export default charactersSlice.reducer;
 export {

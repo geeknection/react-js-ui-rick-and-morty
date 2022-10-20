@@ -19,5 +19,29 @@ namespace Reducers {
         url: string;
         created: string;
     }
+
+    export interface InitialCharactersState {
+        info: {
+            count: number;
+            pages: number;
+            next: string;
+            prev: null;
+        },
+        results: Reducers.Character[]
+    }
+
+    export interface Action {
+        type: string;
+        payload: any;
+    }
+
+    export interface ResponseGenerator {
+        config?:any,
+        data?:any,
+        headers?:any,
+        request?:any,
+        status?:number,
+        statusText?:string
+    }
 }
 export default Reducers;
