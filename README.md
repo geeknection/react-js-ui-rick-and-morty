@@ -22,7 +22,7 @@ Interface de consumo da api Rick &  Morty (https://rickandmortyapi.com).
 
 ### Testes
 
-- npm start
+- npm test
 
 ### Gerar build
 
