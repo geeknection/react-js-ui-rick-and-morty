@@ -8,6 +8,7 @@ function SearchSection() {
     const dispatch = useDispatch();
     const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        if (!searchValue.trim()) return;
         dispatch({
             type: ReducerConsts.saga.types.FETCH_CHARACTERS_REQUESTED,
             payload: `https://rickandmortyapi.com/api/character/?name=${searchValue}`
@@ -31,6 +32,7 @@ function SearchSection() {
                                     placeholder='Digite algo...'
                                     value={searchValue}
                                     onChange={onChangeSearchValue}
+                                    required
                                 />
                             </div>
                             <div className='col-md-2 col-sm-2 p-0'>

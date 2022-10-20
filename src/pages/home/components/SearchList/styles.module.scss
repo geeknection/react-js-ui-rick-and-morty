@@ -1,0 +1,98 @@
+.SearchList {
+    padding: 70px 0 70px;
+
+    .ListHeader {
+        padding: 0px 0 20px 0;
+        margin-bottom: 0px;
+        text-align: center;
+
+        .Title {
+            font-weight: 600;
+            margin-top: 0;
+            text-transform: capitalize;
+            font-family: 'Poppins', sans-serif;
+            color: #334e6f;
+            font-size: 36px;
+            margin-left: auto;
+            margin-right: auto;
+
+            span {
+                color: #ff431e;
+            }
+        }
+    }
+}
+
+.SearchItem {
+    border: 1px solid #eaeff5;
+    box-shadow: 0px 0px 10px 1px #47555f14;
+    overflow: hidden;
+    margin-top: 25px;
+    border-radius: 6px;
+    background: #ffffff;
+    padding: 0;
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    transition: all ease 0.4s;
+
+    a,
+    a:active,
+    a:focus,
+    a:hover {
+        color: #334e6f;
+        outline: none;
+        text-decoration: none;
+        transition: all 0.3s ease-in-out;
+        display: inline-block;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .ItemImage {
+        max-height: 300px;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+        text-align: center;
+        background: #f1f1f1;
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            transition: all 0.6s ease-out 0s;
+        }
+
+        img {
+            width: auto;
+            height: 100%;
+        }
+    }
+
+    .ItemCaption {
+        padding: 10px 15px;
+        position: relative;
+
+        .CaptionTitle {
+            margin-bottom: 3px;
+            font-size: 17px;
+            font-weight: bold;
+        }
+    }
+
+    .ItemInfo {
+        padding: 10px 15px;
+        position: relative;
+
+        .Info {
+            display: block;
+            color: #667582;
+            margin-bottom: 4px;
+        }
+    }
+}

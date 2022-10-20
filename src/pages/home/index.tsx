@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import ReducerConsts from '#/reducers/consts';
 import Reducers from '#/reducers/interfaces';
 import SearchSection from './components/SearchSection';
+import SearchList from './components/SearchList';
 
 function HomePage() {
     const characters = useSelector((state: any) => state.charactersStore as Reducers.InitialCharactersState);
@@ -17,6 +18,9 @@ function HomePage() {
     return (
         <React.Fragment>
             <SearchSection />
+            <SearchList
+                characters={characters.results}
+            />
         </React.Fragment>
     );
 }
