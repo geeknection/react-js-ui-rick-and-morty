@@ -27,7 +27,8 @@ namespace Reducers {
             next: string;
             prev: null;
         },
-        results: Reducers.Character[]
+        results: Reducers.Character[];
+        loading: boolean;
     }
 
     export interface Action {

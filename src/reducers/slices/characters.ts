@@ -8,7 +8,8 @@ const initialState: Reducers.InitialCharactersState = {
         pages: 0,
         prev: null,
     },
-    results: []
+    results: [],
+    loading: true,
 };
 
 export const charactersSlice = createSlice({
@@ -18,6 +19,9 @@ export const charactersSlice = createSlice({
         setCharacters: (state, action) => {
             state.info = action.payload.info;
             state.results = action.payload.results;
+        },
+        setLoad: (state, action) => {
+            state.loading = action.payload;
         }
     },
 });
@@ -25,8 +29,12 @@ export const charactersSlice = createSlice({
 const dispatchCharacters = (data: Reducers.InitialCharactersState) => {
     return charactersSlice.actions.setCharacters(data);
 };
+const dispatchCharactersLoad = (data: boolean) => {
+    return charactersSlice.actions.setLoad(data);
+};
 
 export default charactersSlice.reducer;
 export {
-    dispatchCharacters
+    dispatchCharacters,
+    dispatchCharactersLoad
 };

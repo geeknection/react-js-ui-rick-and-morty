@@ -1,6 +1,7 @@
 import Reducers from '#/reducers/interfaces';
 import React from 'react';
 import styles from './styles.module.scss';
+import Skeleton from 'react-loading-skeleton'
 
 interface _Props {
     data: Reducers.Character

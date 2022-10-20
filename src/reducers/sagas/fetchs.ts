@@ -2,7 +2,7 @@ import { call, put } from 'redux-saga/effects';
 import ReducerConsts from '#/reducers/consts';
 import axios from 'axios';
 import Reducers from '../interfaces';
-import { dispatchCharacters } from '../slices/characters';
+import { dispatchCharacters, dispatchCharactersLoad } from '../slices/characters';
 
 export function* fetchCharacters(action: Reducers.Action) {
     try {
@@ -11,7 +11,9 @@ export function* fetchCharacters(action: Reducers.Action) {
         if (response) {
             yield put(dispatchCharacters(response));
         }
+        yield put(dispatchCharactersLoad(false));
     } catch (error) {
+        yield put(dispatchCharactersLoad(false));
         yield put({
             type: ReducerConsts.saga.types.FETCH_CHARACTERS_FAILED,
             message: error instanceof Error ? error.message : 'Fail when try fetch characters'

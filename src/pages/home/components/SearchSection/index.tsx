@@ -1,4 +1,5 @@
 import ReducerConsts from '#/reducers/consts';
+import { dispatchCharactersLoad } from '#/reducers/slices/characters';
 import React, { memo, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import styles from './styles.module.scss';
@@ -8,11 +9,14 @@ function SearchSection() {
     const dispatch = useDispatch();
     const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        if (!searchValue.trim()) return;
-        dispatch({
-            type: ReducerConsts.saga.types.FETCH_CHARACTERS_REQUESTED,
-            payload: `https://rickandmortyapi.com/api/character/?name=${searchValue}`
-        });
+        dispatch(dispatchCharactersLoad(true));
+        //apenas para conseguir visualizar o efeito de skeleton. Queria que fosse visualizado essa tratativa
+        setTimeout(() => {
+            dispatch({
+                type: ReducerConsts.saga.types.FETCH_CHARACTERS_REQUESTED,
+                payload: `https://rickandmortyapi.com/api/character/?name=${searchValue}`
+            });
+        }, 1000);
     };
     const onChangeSearchValue = (e: React.FormEvent<HTMLInputElement>) => setSearchValue(e.currentTarget.value);
     return (
@@ -32,7 +36,6 @@ function SearchSection() {
                                     placeholder='Digite algo...'
                                     value={searchValue}
                                     onChange={onChangeSearchValue}
-                                    required
                                 />
                             </div>
                             <div className='col-md-2 col-sm-2 p-0'>
