@@ -36,5 +36,5 @@ Interface de consumo da api Rick &  Morty (https://rickandmortyapi.com).
 
 ### Preview
 
-![alt text](https://github.com/geeknection/react-js-ui-rick-and-morty/tree/main/screenshots/screen-loading.png?raw=true)
-![alt text](https://github.com/geeknection/react-js-ui-rick-and-morty/tree/main/screenshots/screen-listing.png?raw=true)
+![alt text](https://github.com/[username]/[reponame]/blob/main/screenshots/screen-loading.png?raw=true)
+![alt text](https://github.com/[username]/[reponame]/blob/main/screenshots/screen-listing.png?raw=true)
