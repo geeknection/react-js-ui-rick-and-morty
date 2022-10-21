@@ -1,22 +1,32 @@
-import React, { FC, ReactElement } from 'react'
-import { render, RenderOptions } from '@testing-library/react'
-import { Provider } from 'react-redux';
-import store from '#/reducers';
+import React, { PropsWithChildren } from 'react'
+import { render as tlRender } from '@testing-library/react'
+import type { RenderOptions } from '@testing-library/react'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import type { PreloadedState } from '@reduxjs/toolkit'
+import { Provider } from 'react-redux'
+import { AppStore, RootState, storesCombined } from '#/reducers'
 
-const Wrapper: FC<{ children: React.ReactNode }> = ({ children }) => {
-    return (
-        <React.StrictMode>
-            <Provider store={store}>
-                {children}
-            </Provider>
-        </React.StrictMode>
-    )
+interface ExtendedRenderOptions extends Omit<RenderOptions, 'queries'> {
+  preloadedState?: PreloadedState<RootState>
+  store?: AppStore
 }
 
-const customRender = (ui: ReactElement, options?: Omit<RenderOptions, 'wrapper'>) => render(ui, {
-    wrapper: Wrapper,
-    ...options
-})
+export function render(
+  ui: React.ReactElement,
+  {
+    preloadedState = {},
+    // Automatically create a store instance if no store was passed in
+    store = configureStore({
+        reducer: combineReducers(storesCombined),
+        preloadedState
+    }),
+    ...renderOptions
+  }: ExtendedRenderOptions = {}
+) {
+  function Wrapper({ children }: PropsWithChildren<{}>): JSX.Element {
+    return <Provider store={store}>{children}</Provider>
+  }
 
-export * from '@testing-library/react'
-export { customRender as render }
+  // Return an object with the store and all of RTL's query functions
+  return { store, ...tlRender(ui, { wrapper: Wrapper, ...renderOptions }) }
+}

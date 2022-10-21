@@ -3,7 +3,7 @@ import charactersStore from '#/reducers/slices/characters';
 import createSagaMiddleware from 'redux-saga';
 import sagas from './sagas';
 
-const sagaMiddleware = createSagaMiddleware();
+export const sagaMiddleware = createSagaMiddleware();
 
 export const storesCombined = {
     charactersStore
@@ -19,3 +19,5 @@ const rootReducer = configureStore({
 sagaMiddleware.run(sagas);
 
 export default rootReducer;
+export type RootState = typeof reducers
+export type AppStore = typeof rootReducer

@@ -4,7 +4,7 @@ import Skeleton from 'react-loading-skeleton';
 
 function SearchItemSkeleton() {
     return (
-        <div className="col-md-4 col-sm-6">
+        <div className="col-md-4 col-sm-6" data-testid="SearchItemSkeleton">
             <div className={styles.SearchItem}>
                 <a href={'#'} target='_blank' rel="noreferrer">
                     <div className={styles.ItemImage}>

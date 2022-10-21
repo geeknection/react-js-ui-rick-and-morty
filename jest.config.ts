@@ -22,5 +22,8 @@ export default {
     },
     transform: {
         ".+\\.(css|scss|png|jpg|svg)$": "jest-transform-stub"
-    }
+    },
+    setupFiles: [
+        "<rootDir>/jest.setup.ts"
+    ]
 };

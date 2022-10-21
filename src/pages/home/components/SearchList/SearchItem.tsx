@@ -9,7 +9,7 @@ interface _Props {
 function SearchItem(props: _Props) {
     const { data: state } = props;
     return (
-        <div className="col-md-4 col-sm-6">
+        <div className="col-md-4 col-sm-6" data-testid="SearchItem">
             <div className={styles.SearchItem}>
                 <a href={state.url} target='_blank' rel="noreferrer">
                     <div className={styles.ItemImage}>
