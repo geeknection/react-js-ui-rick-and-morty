@@ -1,15 +1,15 @@
 module.exports = {
     'env': {
         'browser': true,
-        'es2021': true
+        'es2021': true,
+        "jest/globals": true
     },
     'extends': [
         'eslint:recommended',
         'plugin:react/recommended',
         'plugin:@typescript-eslint/recommended'
     ],
-    'overrides': [
-    ],
+    'overrides': [],
     'parser': '@typescript-eslint/parser',
     'parserOptions': {
         'ecmaVersion': 'latest',
@@ -18,7 +18,8 @@ module.exports = {
     'plugins': [
         'react',
         '@typescript-eslint',
-        "react-hooks"
+        "react-hooks",
+        "jest"
     ],
     'rules': {
         'indent': [
