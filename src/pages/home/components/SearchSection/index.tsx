@@ -20,7 +20,7 @@ function SearchSection() {
     };
     const onChangeSearchValue = (e: React.FormEvent<HTMLInputElement>) => setSearchValue(e.currentTarget.value);
     return (
-        <section className={styles.SearchSection} style={{
+        <section data-testid='SearchSection' className={styles.SearchSection} style={{
             backgroundImage: `url(${require('#/assets/bg-rick-morty.jpg')})`
         }}>
             <div className='container'>
@@ -28,9 +28,10 @@ function SearchSection() {
                     <div className='col-md-12 col-sm-12'>
                         <h1 className={styles.SearchTitle}>UI API Rick & Morty</h1>
                         <p className={styles.SearchSubtitle}>Pesquise por algum personagem</p>
-                        <form className={`${styles.SearchForm} row`} onSubmit={onSubmit}>
+                        <form className={`${styles.SearchForm} row`} onSubmit={onSubmit} data-testid='SearchSectionForm'>
                             <div className='col-md-10 col-sm-10 p-0'>
                                 <input
+                                    data-testid='SearchSectionInput'
                                     type='text'
                                     className='form-control'
                                     placeholder='Digite algo...'
@@ -39,7 +40,7 @@ function SearchSection() {
                                 />
                             </div>
                             <div className='col-md-2 col-sm-2 p-0'>
-                                <button type='submit' className='btn btn-default'>Pesquisar</button>
+                                <button type='submit' className='btn btn-default' data-testid='SearchSectionSubmit'>Pesquisar</button>
                             </div>
                         </form>
                     </div>
